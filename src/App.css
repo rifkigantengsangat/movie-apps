@@ -1,0 +1,33 @@
+.slideRight{
+
+  animation-name: slideRight;
+  -webkit-animation-name: slideRight;   
+
+  animation-duration: 1s;   
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease-in-out;   
+  -webkit-animation-timing-function: ease-in-out;       
+
+  visibility: visible !important;   
+}
+
+@keyframes slideRight {
+  0% {
+      transform: translateX(-150%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }   
+}
+
+@-webkit-keyframes slideRight {
+  0% {
+      -webkit-transform: translateX(-150%);
+  }
+
+  100% {
+      -webkit-transform: translateX(0%);
+  }
+}
