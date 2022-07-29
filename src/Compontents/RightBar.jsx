@@ -31,7 +31,7 @@ useEffect(()=>{
   }else{
     setMessage(`Data Yang Ditemukan Berjumlah${dataSearch.length} Movie`)
   }
-  console.log(dataSearch.length)
+  console.log(dataSearch)
 },[search,dataSearch])
   return (
     <Container>

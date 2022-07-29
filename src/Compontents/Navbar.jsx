@@ -5,7 +5,7 @@ import { getAuth,signInWithRedirect ,GoogleAuthProvider,onAuthStateChanged,signO
 import {getData,getDataSuccess,getDataFailure} from '../Features/Data/dataSlice'
 import {login,logOut} from '../Features/Login/loginSlice'
 import {GrLogin} from 'react-icons/gr'
-import { useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import {AiFillHome,AiOutlineCompass,AiFillClockCircle,AiFillStar} from 'react-icons/ai'
 import { MdFavorite} from 'react-icons/md'
@@ -62,18 +62,21 @@ useEffect(() => {
   const dataMenu = [{
     id:1,
     nama: 'Home',
-    icon : <AiFillHome/>
+    icon : <AiFillHome/>,
+    link : '/'
 
   },
   {
     id:2,
     nama:"Discovery",
-    icon : <AiOutlineCompass/>
+    icon : <AiOutlineCompass/>,
+    link : '/discover'
   },
   {
     id:3,
     nama:"Favorite",
-    icon : <MdFavorite/>
+    icon : <MdFavorite/>,
+    link : '/favorite'
   }
 
 ]
@@ -110,7 +113,7 @@ const libraryMenu = [
   {(e)=>iconData(e.icon.type.name)}
   </ContainerMenuList>
   <NamaContainer>
-    <NamaList>{e.nama}</NamaList>
+    <Link style={{ fontSize:'13px',color:"#6e7176",fontWeight:"600" }} to={e.link}>{e.nama}</Link>
   </NamaContainer>
   </IconsContainer>
   </ListMenu>

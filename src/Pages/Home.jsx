@@ -9,11 +9,11 @@ const Home = () => {
   const globalState = useSelector((state)=> state)
   const {isLogin,users} = globalState.user
   return (
-    <Container>
-     <Navbar/>
+   <>
+    
      <Main/>
-     <RightBar/>
-    </Container>
+     </>
+  
   )
 }
 

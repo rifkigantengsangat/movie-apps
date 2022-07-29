@@ -68,12 +68,12 @@ display:flex;
 align-items: center;
 height: 40px;
 width: 40%;
-background-color: #0D0D0F;
+background-color:#990000;
 margin:5px;
 border-radius:20px;
 padding:10px 10px;
 &:hover {
-        background-color: red;
+        background-color:red;
         transform: scale(1.05);
         color: white !important
     }
