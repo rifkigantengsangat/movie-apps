@@ -10,7 +10,7 @@ export const FavoriteSlice = createSlice({
     reducers:{
         addFavorite :((state,{payload})=>{
             console.log(payload)
-            state.favorite = [...state.favorite,payload]
+            state.favorite = ([...state.favorite,payload])
 
         }),
         removeFavorite : ((state,{payload})=>{

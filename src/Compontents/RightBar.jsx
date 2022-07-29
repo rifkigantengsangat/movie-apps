@@ -9,7 +9,7 @@ const RightBar = () => {
   const user= useSelector((state)=> state.user)
   const dataUser =user.users
   const [search,setSearch] =useState('')
-  const [message,setMessage] = useState(false)
+  const [message,setMessage] = useState('')
   const [dataSearch,setDataSearch] =useState([])
  const  handleSubmit =async(e)=>{
   e.preventDefault()
@@ -20,19 +20,18 @@ const RightBar = () => {
     }
   })
   setDataSearch(response.data.results)
-  if(dataSearch.length===0){
-    setMessage(true)
-  }else{
-    setMessage(false)
-  }
  }
 
  const handleFormChange = (e)=>{
  setSearch(e.target.value)
- console.log(search)
  }
 useEffect(()=>{
-
+  if(dataSearch.length===0){
+    setMessage('Not Found')
+  }else{
+    setMessage(`Data Yang Ditemukan Berjumlah${dataSearch.length} Movie`)
+  }
+  console.log(dataSearch.length)
 },[search,dataSearch])
   return (
     <Container>
@@ -51,7 +50,7 @@ useEffect(()=>{
        <InputSearch placeholder='search Movies....' onChange={(e)=>handleFormChange(e)}/>
        </Form>
       </ContainerInput>
-      {message&&<h1>Tidak Ada Tujuan</h1>}
+      {message}
       <GenreListMovie/>
       <Trending/>
     </Container>

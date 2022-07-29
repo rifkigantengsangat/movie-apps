@@ -10,8 +10,7 @@ const GenreMovieList = () => {
                 api_key: import.meta.env.VITE_BASE_API_KEY,
             }
         })
-        const cut = data.genres.splice(0,9)
-    console.log(cut)
+   data.genres.splice(0,9)
         setGenre(data.genres)
     }
     useEffect(()=>{
@@ -73,11 +72,17 @@ background-color: #0D0D0F;
 margin:5px;
 border-radius:20px;
 padding:10px 10px;
+&:hover {
+        background-color: red;
+        transform: scale(1.05);
+        color: white !important
+    }
 `
 const ContainerTextGenre =styled.div`
 
 `
 const TextGenre = styled.div`
 text-align : center;
-color:#6e7176;
+color : white;
+
 `

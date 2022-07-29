@@ -4,7 +4,6 @@ import {MdFavorite} from 'react-icons/md'
 import {addFavorite,removeFavorite} from '../Features/FavoriteSlice'
 import {useSelector,useDispatch} from 'react-redux'
 const CardMovie = ({data,setText,text,getAuthor}) => {
-
   const {favorite} = useSelector((state)=> state.favorite)
   const [color,setColor]=useState('red')
     const spliting = (spl)=>{
@@ -44,7 +43,7 @@ const CardMovie = ({data,setText,text,getAuthor}) => {
    },[text])
    useEffect(()=>{
    
-   },[favorite])
+   },[])
     const image = 'https://image.tmdb.org/t/p/w500'
   return (
     <Container style={{  backgroundImage: `url(${image}${data?.backdrop_path})`,  backgroundSize: 'cover',

@@ -4,13 +4,16 @@ import {MdCircleNotifications} from 'react-icons/md'
 import {useDispatch, useSelector}  from 'react-redux'
 import {getData,getDataSuccess,getDataFailure} from '../Features/Data/dataSlice'
 import CardMovie from './CardMovie'
-
+import { MdFavorite} from 'react-icons/md'
 import {BiCategory} from 'react-icons/bi'
+import {addFavorite,removeFavorite} from '../Features/FavoriteSlice'
 import TopRated from './TopRated'
 const Main = () => {
     const dispatch = useDispatch()
     const {data} = useSelector((state)=> state.data)
+    const {favorite} = useSelector((state)=> state.favorite)
     const [text,setText] = useState(false)
+    const [fav,setFav] = useState([])
     const fetchData = async ()=>{
         try {
             dispatch(getData())
@@ -30,6 +33,12 @@ const Main = () => {
     useEffect(()=>{
 fetchData()
     },[dispatch])
+    useEffect(() => {
+      if(localStorage.getItem('fav')){
+        const retriviveProd = JSON.parse(localStorage.getItem("fav"));
+        if(retriviveProd) dispatch(addFavorite(retriviveProd))
+      }
+    },[])
   return (
     <>
         <Container>
@@ -42,6 +51,7 @@ fetchData()
             <Menu>
                 <ListContainer><MdCircleNotifications style={{ color:'#6e7176',fontSize:'30px'}}/></ListContainer>
                 <ListContainer><BiCategory style={{ color:'#6e7176',fontSize:'30px'}}/></ListContainer>
+                <ListContainer><MdFavorite style={{ color:'#6e7176',fontSize:'30px'}}/><span style={{ color:'red',fontSize:'12px'}}>{favorite.length}</span></ListContainer>
             </Menu>
         </ContainerMenu>
        <ContainerTrending>

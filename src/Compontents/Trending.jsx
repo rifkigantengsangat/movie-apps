@@ -9,6 +9,7 @@ const Trending = () => {
     const [trendingData,setTrendingData] =useState([])
     const handleClick =(e)=>{
         setText(e.currentTarget.textContent)
+       
         fetchingData()
     }
     const fetchingData =async()=>{
@@ -95,6 +96,10 @@ const ContainerDiv = styled.div`
 margin:5px;
 border-radius:20px;
 padding:10px 10px;
+&:hover {
+        background-color: #e6007e;
+        transform: scale(1.05);
+    }
 `
 const ContainerSplide = styled.div`
   margin:20px 0;
